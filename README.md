@@ -41,7 +41,7 @@ php artisan key:generate
 ```
 
 
-Realize os migrations
+Realize os migrations e o setup do banco, (o arquivo ficará dentro de /database/)
 ```sh
 php artisan migrate
 ```

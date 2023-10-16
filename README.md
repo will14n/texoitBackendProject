@@ -41,5 +41,11 @@ php artisan key:generate
 ```
 
 
+Realize os migrations
+```sh
+php artisan migrate
+```
+
+
 Acesse o projeto
 [http://localhost:8989](http://localhost:8989)

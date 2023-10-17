@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('producer_id')
                 ->references('id')
-                ->on('producers');
+                ->on('producers')
+                ->cascadeOnDelete();
             $table->foreignId('movie_id')
                 ->references('id')
-                ->on('movies');
+                ->on('movies')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

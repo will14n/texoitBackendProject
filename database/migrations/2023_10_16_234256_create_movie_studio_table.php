@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('studio_id')
                 ->references('id')
-                ->on('studios');
+                ->on('studios')
+                ->cascadeOnDelete();
             $table->foreignId('movie_id')
                 ->references('id')
-                ->on('movies');
+                ->on('movies')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

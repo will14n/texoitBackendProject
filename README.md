@@ -47,7 +47,7 @@ php artisan migrate
 ```
 
 Agora que temos a estrutura do banco montada, iremos descer e subir a estrutura docker novamente.
-Execute o comando exit para sair do docker
+Execute o comando exit para sair do docker ou podemos executar manualmente com o comando "php artisan migrate:fresh && php artisan db:seed --class=MovieSeeder" dentro do container
 ```sh
 exit
 ```

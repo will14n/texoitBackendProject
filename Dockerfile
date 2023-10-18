@@ -45,8 +45,15 @@ WORKDIR /var/www
 
 COPY --chown=www-data:www-data . /var/www
 
+# RUN mkdir /app
+# WORKDIR /
+# RUN touch /database/database.sqlite
+# TOUCH /database/database.sqlite
+
 RUN mkdir -p /scripts
 COPY script.sh /scripts
 # WORKDIR /scripts
-RUN chmod +x /var/www/script.sh
+# RUN chmod +x /var/www/build.sh
+# RUN chmod +x /var/www/script.sh
+# RUN /scripts/build.sh
 RUN /scripts/script.sh

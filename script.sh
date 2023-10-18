@@ -1,6 +1,6 @@
 #!/bin/bash
 # cd /var/www
-composer install
+# composer install
 pwd
 php artisan migrate:fresh
 php artisan db:seed --class=MovieSeeder

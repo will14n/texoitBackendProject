@@ -1,7 +1,7 @@
 FROM php:8.1-fpm
 
 # set your user name
-ARG user=$user
+ARG user=willian
 ARG uid=1000
 
 # Install system dependencies
@@ -37,12 +37,16 @@ RUN pecl install -o -f redis \
 WORKDIR /var/www
 
 # Copy custom configurations PHP
-COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
+# COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
-USER $user
+# USER root
+# RUN chown -R $user:$user /var/www
+# USER www
 
+COPY --chown=www-data:www-data . /var/www
 
-WORKDIR /var/www
-ADD scripts.sh .
-RUN chmod +x ./scripts.sh
-CMD ./scripts.sh
+RUN mkdir -p /scripts
+COPY script.sh /scripts
+# WORKDIR /scripts
+RUN chmod +x /var/www/script.sh
+RUN /scripts/script.sh

@@ -44,7 +44,7 @@ WORKDIR /var/www
 # USER www
 
 COPY --chown=www-data:www-data . /var/www
-RUN chgrp -R www-data storage bootstrap/cache
+RUN chgrp -R www-data storage bootstrap/cache -R
 RUN chmod -R ug+rwx storage bootstrap/cache
 # RUN mkdir /app
 # WORKDIR /
@@ -54,7 +54,7 @@ RUN chmod -R ug+rwx storage bootstrap/cache
 # RUN mkdir -p /scripts
 # COPY script.sh /scripts
 # WORKDIR /scripts
-# RUN chmod +x /var/www/build.sh
+RUN chmod +x /var/www/permission.sh
 # RUN chmod +x /var/www/script.sh
 # RUN /scripts/build.sh
 # RUN /scripts/script.sh

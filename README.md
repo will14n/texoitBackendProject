@@ -63,8 +63,6 @@ docker-compose exec app bash
 ./vendor/bin/phpunit
 ```
 
-
-
 ### Obs.: O arquivo csv que popula o banco, está localizado na pasta /storage/imports
 
 Acesse o projeto

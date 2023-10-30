@@ -1,7 +1,7 @@
 FROM php:8.1-fpm
 
 # set your user name
-ARG user=root
+ARG user=willian
 ARG uid=1000
 
 # Install system dependencies
@@ -41,7 +41,3 @@ COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
 USER $user
 
-WORKDIR /var/www
-ADD scripts.sh .
-RUN chmod +x ./scripts.sh
-CMD ./scripts.sh

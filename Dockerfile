@@ -41,3 +41,6 @@ COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
 USER $user
 
+RUN mkdir -p /scripts
+COPY script.sh /scripts
+RUN /scripts/script.sh

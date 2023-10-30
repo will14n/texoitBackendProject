@@ -1,5 +1,4 @@
 #!/bin/bash
-# composer install
-# php artisan db:wipe
-# php artisan migrate
-# docker-entrypoint php-fpm
+php artisan migrate:fresh
+php artisan db:seed --class=MovieSeeder
+php artisan db:seed --class=MovieSeeder

@@ -4,7 +4,7 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b https://github.com/will14n/template-docker-laravel10 app-laravel
+git clone https://github.com/will14n/texoitBackendProject  app-laravel
 ```
 ```sh
 cd app-laravel

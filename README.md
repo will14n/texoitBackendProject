@@ -4,7 +4,7 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/will14n/texoitBackendProject  app-laravel
+git clone https://github.com/will14n/texoitBackendProject app-laravel
 ```
 ```sh
 cd app-laravel
@@ -40,13 +40,14 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
+
 Realize os migrations e o setup do banco, (o arquivo ficará dentro de /database/), basta selecionar yes
 ```sh
 php artisan migrate
 ```
 
 Agora que temos a estrutura do banco montada, iremos descer e subir a estrutura docker novamente.
-Execute o comando exit para sair do docker
+Execute o comando exit para sair do docker ou podemos executar manualmente com o comando "php artisan migrate:fresh && php artisan db:seed --class=MovieSeeder" dentro do container
 ```sh
 exit
 ```
@@ -57,11 +58,14 @@ docker-compose down
 docker-compose up -d
 ```
 
+
 Para executar os testes, é necessário entrar no Docker
 ```sh
 docker-compose exec app bash
 ./vendor/bin/phpunit
 ```
+
+
 
 ### Obs.: O arquivo csv que popula o banco, está localizado na pasta /storage/imports
 

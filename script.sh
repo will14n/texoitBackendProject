@@ -2,7 +2,7 @@
 
 chown -R www-data:www-data /var/www/storage
 
-chmod -R 755 /var/www/storage
+chmod -R 755 /var/www/storage database/database.sqlite
 
 printf "\n\nInstalling composer dependencies...\n\n"
 composer install

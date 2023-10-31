@@ -1,8 +1,22 @@
 #!/bin/bash
-# cd /var/www
-# composer install
-pwd
+
+printf "\n\nInstalling composer dependencies...\n\n"
+composer install
+
+printf "\n\nReseting database...\n\n"
 php artisan migrate:fresh
+
+printf "\n\nRegistering films in the database may take time depending on the amount of data...\n\n"
 php artisan db:seed --class=MovieSeeder
-# docker-entrypoint php-fpm
-# /usr/bin/supervisord -n -c /etc/supervisord.conf
+
+printf "\n\nStarting PHP daemon...\n\n"
+php-fpm --daemonize
+
+printf "Starting Nginx...\n\n"
+set -e
+
+if [[ "$1" == -* ]]; then
+    set -- nginx -g daemon off; "$@"
+fi
+
+exec "$@"

@@ -1,7 +1,8 @@
 #!/bin/bash
 
-printf "\n\nInstalling composer dependencies...\n\n"
-composer install
+chown -R www-data:www-data /var/www/storage
+
+chmod -R 755 /var/www/storage
 
 printf "\n\nReseting database...\n\n"
 php artisan migrate:fresh

@@ -33,7 +33,4 @@ RUN chown -R www-data:www-data /var/www/storage
 
 RUN chmod -R 755 /var/www/storage
 
-RUN printf "\n\nInstalling composer dependencies...\n\n"
-RUN composer install
-
 CMD /var/www/script.sh; sleep infinity

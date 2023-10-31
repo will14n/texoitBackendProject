@@ -4,6 +4,9 @@ chown -R www-data:www-data /var/www/storage
 
 chmod -R 755 /var/www/storage
 
+printf "\n\nInstalling composer dependencies...\n\n"
+composer install
+
 printf "\n\nReseting database...\n\n"
 php artisan migrate:fresh
 

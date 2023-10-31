@@ -66,7 +66,7 @@ class MovieController extends Controller
                 'error' => 'Not Found'
             ], Response::HTTP_NOT_FOUND);
         }
-        dd($movie);
+
         return new MovieResource($movie);
     }
 

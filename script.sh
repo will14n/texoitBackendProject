@@ -1,8 +1,10 @@
 #!/bin/bash
 
 chown -R www-data:www-data /var/www/storage
+chown -R www-data:www-data /var/www/database
 
-chmod -R 755 /var/www/storage database/database.sqlite
+chmod -R 755 /var/www/storage
+chmod -R 755 /var/www/database
 
 printf "\n\nInstalling composer dependencies...\n\n"
 composer install

@@ -18,27 +18,34 @@ class MovieAwardResource extends JsonResource
     public function toArray(Request $request): array
     {
         $awardWinners = (array) $this->resource;
-        $producers = array_values(
-            Arr::sort(
-                $awardWinners,
-                fn ($value) => $value->interval
-            )
-        );
+        if($this->whenNotNull($awardWinners)) {
 
-        $min = current($producers)->interval;
-        $max = end($producers)->interval;
+            $producers = array_values(
+                Arr::sort(
+                    $awardWinners,
+                    fn ($value) => $value->interval
+                    )
+                );
 
+                $min = current($producers)->interval;
+                $max = end($producers)->interval;
+
+                return [
+                    'min' => [
+                    Arr::where($producers, function ($value, $key) use ($min) {
+                        return $value->interval == $min;
+                    }),
+                ],
+                'max' => [
+                    Arr::where($producers, function ($value, $key) use ($max) {
+                        return $value->interval == $max;
+                    })
+                ],
+            ];
+        }
         return [
-            'min' => [
-                Arr::where($producers, function ($value, $key) use ($min) {
-                    return $value->interval == $min;
-                }),
-            ],
-            'max' => [
-                Arr::where($producers, function ($value, $key) use ($max) {
-                    return $value->interval == $max;
-                })
-            ],
+            'min' => '',
+            'max' => ''
         ];
     }
 }
